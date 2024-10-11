@@ -55,8 +55,7 @@ Provides: %{pypi_name} = %{version}-%{release}
 %pyproject_wheel
 
 %install
-%pyproject_install
-%pyproject_save_files %{pypi_name}
+%make_install DESTDIR=%{buildroot}
 %{__make} DESTDIR=%{buildroot} PREFIX=%{_prefix} install-shortnames
 %{__make} DESTDIR=%{buildroot} PREFIX=%{_prefix} install-docs
 %{__make} DESTDIR=%{buildroot} PREFIX=%{_prefix} install-completions
